@@ -4,6 +4,7 @@ import { RouterModule } from '@angular/router';
 
 import { LoginComponent } from './components/login.component';
 import { LoginService } from './services';
+import { LayoutModule } from '../layout';
 
 @NgModule({
   declarations: [
@@ -11,11 +12,10 @@ import { LoginService } from './services';
   ],
   imports: [
     CommonModule,
-    RouterModule
+    RouterModule,
+    LayoutModule,
   ],
-  exports: [
-    LoginComponent
-  ],
+  exports: [],
   providers: [
     LoginService
   ]

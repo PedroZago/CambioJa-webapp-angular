@@ -6,24 +6,26 @@ import { HttpClientModule } from '@angular/common/http';
 import { MoedaService } from './services';
 import { UsuarioService } from './services';
 import { CambioService } from './services';
-import { FooterComponent } from './footer';
-import { NavbarComponent } from './navbar';
-import { PaginaComponent } from './pagina/pagina.component';
-import { ContentComponent } from './content/content.component';
-import { CarouselComponent } from './carousel/carousel.component';
+import { PaginaComponent } from './components';
+import { LayoutModule } from '../layout';
+import { ContentComponent } from './components/content/content.component';
+import { SaldoComponent } from './components/saldo/saldo.component';
+import { ConversaoComponent } from './components/conversao/conversao.component';
+import { HistoricoComponent } from './components/historico/historico.component';
 
 @NgModule({
   declarations: [
-    FooterComponent,
-    NavbarComponent,
     PaginaComponent,
     ContentComponent,
-    CarouselComponent
+    SaldoComponent,
+    ConversaoComponent,
+    HistoricoComponent
   ],
   imports: [
     CommonModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    LayoutModule,
   ],
   providers: [
     MoedaService,

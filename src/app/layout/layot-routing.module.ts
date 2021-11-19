@@ -2,9 +2,9 @@ import { Routes } from '@angular/router';
 
 import { PaginaComponent } from './components';
 
-export const CambioRoutes: Routes = [
+export const LayoutRoutes: Routes = [
     {
-        path: 'saldo',
+        path: 'home',
         component: PaginaComponent
     }
 ];

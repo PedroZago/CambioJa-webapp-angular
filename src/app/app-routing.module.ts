@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { CadastroRoutes } from './cadastro';
 import { CambioRoutes } from './cambio';
+import { LayoutRoutes } from './layout';
 import { LoginRoutes } from './login';
 import { Page404Routes } from './page404';
 
@@ -15,7 +16,8 @@ const routes: Routes = [
   ...LoginRoutes,
   ...CadastroRoutes,
   ...CambioRoutes,
-  ...Page404Routes
+  ...LayoutRoutes,
+  ...Page404Routes,
 ];
 
 @NgModule({

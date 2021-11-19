@@ -1,40 +1,39 @@
 <div class="container-fluid d-flex justify-content-center">
-  <div class="card text-center bg-light mt-5" style="width: 25rem;">
-    <div class="card-body">
-
+  <div class="card bg-light shadow" style="width: 50rem;">
+    <div class="card-body p-4">
       <div class="form-login">
         <form>
-          <h1 class="mb-3 fw-normal">Cadastro</h1>
+          <h2 class="mb-3 fw-bold">Criar uma conta</h2>
 
           <div class="form-floating mb-3">
             <input type="text" class="form-control" id="nome" placeholder="nome">
-            <label for="nome">Nome</label>
+            <label for="nome">NOME</label>
           </div>
 
           <div class="form-floating mb-3">
             <input type="email" class="form-control" id="email" placeholder="nome@exemplo.com">
-            <label for="email">E-mail</label>
+            <label for="email">E-MAIL</label>
           </div>
 
           <div class="form-floating mb-3">
-            <input type="senha" class="form-control" id="senha" placeholder="senha">
-            <label for="senha">Senha</label>
+            <input type="password" class="form-control" id="senha" placeholder="senha">
+            <label for="senha">SENHA</label>
           </div>
 
           <div class="form-floating mb-3">
             <select class="form-select" id="sexo" aria-label="Feminino">
-              <option selected>Selecione o seu sexo</option>
+              <option selected>SELECIONE O SEU SEXO</option>
               <option value="1">Feminino</option>
               <option value="2">Masculino</option>
               <option value="3">Outro</option>
             </select>
-            <label for="sexo">Sexo</label>
+            <label for="sexo">SEXO</label>
           </div>
 
           <button class="w-100 btn btn-lg btn-primary mb-3" type="submit">Cadastrar</button>
 
           <div class="form-text">
-            Já possui cadastro? <a [routerLink]="['/signin']">Clique aqui</a>
+            <a [routerLink]="['/signin']">Já tem uma conta?</a>
           </div>
         </form>
       </div>

@@ -4,6 +4,7 @@ import { RouterModule } from '@angular/router';
 
 import { CadastroComponent } from './components';
 import { CadastroService } from './services';
+import { LayoutModule } from '../layout';
 
 @NgModule({
   declarations: [
@@ -11,11 +12,10 @@ import { CadastroService } from './services';
   ],
   imports: [
     CommonModule,
-    RouterModule
+    RouterModule,
+    LayoutModule,
   ],
-  exports: [
-    CadastroComponent
-  ],
+  exports: [],
   providers: [
     CadastroService
   ]
