@@ -1,0 +1,33 @@
+<div class="container-fluid d-flex justify-content-center">
+  <div class="card text-center bg-light mt-5" style="width: 25rem;">
+    <div class="card-body">
+      <div class="form-login">
+        <form>
+          <h1 class="mb-3 fw-normal">Entrar</h1>
+
+          <div class="form-floating mb-3">
+            <input type="email" class="form-control" id="email" placeholder="nome@exemplo.com">
+            <label for="email">E-mail</label>
+          </div>
+
+          <div class="form-floating">
+            <input type="senha" class="form-control" id="senha" placeholder="senha">
+            <label for="senha">Senha</label>
+          </div>
+
+          <div class="checkbox m-3">
+            <label>
+              <input type="checkbox" value="lembrar"> Lembrar de mim
+            </label>
+          </div>
+
+          <button class="w-100 btn btn-lg btn-primary mb-3" type="submit">Entrar</button>
+
+          <div class="form-text">
+            Novo no CambioJá!? <a [routerLink]="['/signup']">Crie uma conta</a>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
