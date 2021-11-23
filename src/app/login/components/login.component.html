@@ -2,29 +2,65 @@
   <div class="card bg-light shadow" style="width: 50rem;">
     <div class="card-body p-4">
       <div class="form-login">
-        <form>
+        <form [formGroup]="loginForm" (ngSubmit)="fazerLogin()">
           <h2 class="mb-3 fw-bold">Boas vindas de volta!</h2>
 
           <p>Estamos muito animados em te ver novamente!</p>
 
           <div class="form-floating mb-3">
-            <input type="email" class="form-control" id="email" placeholder="nome@exemplo.com">
+            <input type="email" class="form-control" id="email" formControlName="email" placeholder="nome@exemplo.com"
+              required>
+
             <label for="email">E-MAIL</label>
+
+            <div *ngIf="email.invalid && (email.dirty || email.touched)" class="form-text text-danger">
+              <div *ngIf="email.errors?.['email']">
+                E-mail inválido. Exemplo: seunome@mail.com
+              </div>
+
+              <div *ngIf="email.errors?.['required']">
+                Campo obrigatório.
+              </div>
+            </div>
           </div>
 
           <div class="form-floating mb-3">
-            <input type="password" class="form-control" id="senha" placeholder="senha">
+            <input type="password" class="form-control" id="senha" formControlName="senha" placeholder="senha" required>
+
             <label for="senha">SENHA</label>
+
+            <div *ngIf="senha.invalid && (senha.dirty || senha.touched)" class="form-text text-danger">
+              <div *ngIf="senha.errors?.['minlength']">
+                Mínimo de 8 caracteres
+              </div>
+
+              <div *ngIf="senha.errors?.['required']">
+                Campo obrigatório.
+              </div>
+            </div>
+
             <div id="emailHelp" class="form-text"><a [routerLink]="['/recuperar-senha']">Esqueceu sua senha?</a></div>
           </div>
 
-          <button class="w-100 btn btn-lg btn-primary mb-3" type="submit">Entrar</button>
+          <button class="w-100 btn btn-lg btn-primary mb-3" type="submit" [disabled]="loginForm.invalid">Entrar</button>
 
           <div class="form-text">
             Precisando de uma conta? <a [routerLink]="['/signup']">Registre-se</a>
           </div>
         </form>
       </div>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="possuiErro" class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
+  <div id="liveToast" class="toast show" role="alert" aria-live="assertive" aria-atomic="true">
+    <div class="d-flex">
+      <div class="toast-body">
+        E-mail ou senha inválido.
+      </div>
+      <button type="button" class="btn-close me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"
+        (click)="invertePossuiErro()"></button>
     </div>
   </div>
 </div>

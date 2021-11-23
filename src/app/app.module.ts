@@ -8,6 +8,7 @@ import { CambioModule } from './cambio';
 import { LoginModule } from './login';
 import { CadastroModule } from './cadastro';
 import { Page404Module } from './page404';
+import { CookieService } from 'ngx-cookie-service';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,9 @@ import { Page404Module } from './page404';
     Page404Module,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [
+    CookieService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -2,12 +2,11 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 
-import { FooterComponent } from './components';
-import { NavbarComponent } from './components';
-import { PaginaComponent } from './components';
-import { ContentComponent } from './components';
-import { CarouselComponent } from './components';
-import { SobreNosComponent } from './components';
+import {
+  FooterComponent, NavbarComponent, PaginaComponent, ContentComponent,
+  CarouselComponent, SobreNosComponent, ContatoComponent, NossoTimeComponent,
+  PerfilComponent, EditarSenhaComponent
+} from './components/';
 
 @NgModule({
   declarations: [
@@ -16,7 +15,11 @@ import { SobreNosComponent } from './components';
     PaginaComponent,
     ContentComponent,
     CarouselComponent,
-    SobreNosComponent
+    SobreNosComponent,
+    ContatoComponent,
+    NossoTimeComponent,
+    PerfilComponent,
+    EditarSenhaComponent
   ],
   imports: [
     CommonModule,

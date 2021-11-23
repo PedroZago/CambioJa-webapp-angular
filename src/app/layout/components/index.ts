@@ -4,3 +4,7 @@ export * from './content';
 export * from './footer';
 export * from './pagina';
 export * from './navbar';
+export * from './contato';
+export * from './nosso-time';
+export * from './editar-senha';
+export * from './perfil';

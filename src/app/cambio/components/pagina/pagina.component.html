@@ -2,8 +2,24 @@
   <app-navbar></app-navbar>
 </div>
 
-<div class="container">
-  <app-content></app-content>
+<div class="container text-center">
+  <h1 class="mb-5">Módulos</h1>
+
+  <div class="btn-group mb-5" role="group" aria-label="Basic radio toggle button group">
+    <input [routerLink]="['/cambio/saldo']" type="radio" class="btn-check" name="btnradio" id="btnradio1"
+      autocomplete="off">
+    <label class="btn btn-outline-primary" for="btnradio1">Saldo</label>
+
+    <input [routerLink]="['/cambio/historico']" type="radio" class="btn-check" name="btnradio" id="btnradio2"
+      autocomplete="off">
+    <label class="btn btn-outline-primary" for="btnradio2">Histórico</label>
+
+    <input [routerLink]="['/cambio/conversao']" type="radio" class="btn-check" name="btnradio" id="btnradio3"
+      autocomplete="off">
+    <label class="btn btn-outline-primary" for="btnradio3">Conversão</label>
+  </div>
+
+  <router-outlet></router-outlet>
 </div>
 
 <div class="container">

@@ -2,30 +2,27 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { RouterModule } from '@angular/router';
 
-import { MoedaService } from './services';
-import { UsuarioService } from './services';
-import { CambioService } from './services';
-import { PaginaComponent } from './components';
+
+import { MoedaService, UsuarioService, CambioService } from './services';
+import { PaginaComponent, SaldoComponent, ConversaoComponent, HistoricoComponent, NossosModulosComponent } from './components';
 import { LayoutModule } from '../layout';
-import { ContentComponent } from './components/content/content.component';
-import { SaldoComponent } from './components/saldo/saldo.component';
-import { ConversaoComponent } from './components/conversao/conversao.component';
-import { HistoricoComponent } from './components/historico/historico.component';
 
 @NgModule({
   declarations: [
     PaginaComponent,
-    ContentComponent,
     SaldoComponent,
     ConversaoComponent,
-    HistoricoComponent
+    HistoricoComponent,
+    NossosModulosComponent
   ],
   imports: [
     CommonModule,
     HttpClientModule,
     FormsModule,
     LayoutModule,
+    RouterModule
   ],
   providers: [
     MoedaService,
