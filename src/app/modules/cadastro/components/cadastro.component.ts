@@ -1,9 +1,12 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
 import { CadastroService } from '../services';
 import { CadastroResponse, Cadastro } from '../models';
+import { LoginService } from '../../login';
+import { AuthCookieService } from '../../../services';
+import { LoginResponse, Login } from '../../login';
 
 @Component({
   selector: 'app-cadastro',
@@ -15,6 +18,9 @@ export class CadastroComponent implements OnInit {
   cadastro!: Cadastro;
   cadastroResponse!: CadastroResponse;
   possuiErro!: boolean;
+
+  login!: Login;
+  loginResponse!: LoginResponse;
 
   cadastroForm = new FormGroup({
     nome: new FormControl(null, [
@@ -35,6 +41,8 @@ export class CadastroComponent implements OnInit {
 
   constructor(
     private cadastroService: CadastroService,
+    private loginService: LoginService,
+    private authCookieService: AuthCookieService,
     private router: Router
   ) { }
 
@@ -62,7 +70,19 @@ export class CadastroComponent implements OnInit {
       .subscribe(
         response => {
           this.cadastroResponse = response,
-            this.router.navigate(['/home'])
+
+            this.loginService.fazerLogin(this.cadastroForm.value)
+              .subscribe(
+                response => {
+                  this.loginResponse = response,
+                    this.authCookieService.salvarCookie(this.loginResponse),
+                    this.router.navigate(['/home'])
+                },
+                error => {
+                  this.possuiErro = true
+                }
+              );
+
         },
         error => {
           this.possuiErro = true

@@ -8,3 +8,4 @@ export * from './contato';
 export * from './nosso-time';
 export * from './editar-senha';
 export * from './perfil';
+export * from './sair';

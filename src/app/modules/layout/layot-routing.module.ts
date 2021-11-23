@@ -1,13 +1,12 @@
 import { Routes } from '@angular/router';
 
-import { ContatoComponent, PaginaComponent, PerfilComponent, SobreNosComponent } from './components';
-import { AuthGuardService } from './guards';
+import { ContatoComponent, PaginaComponent, PerfilComponent, SobreNosComponent, SairComponent } from './components';
+import { AuthGuardService } from '../../guards';
 
 export const LayoutRoutes: Routes = [
     {
         path: 'home',
-        component: PaginaComponent,
-        canActivate: [AuthGuardService],
+        component: PaginaComponent
     },
     {
         path: 'sobre',
@@ -19,6 +18,11 @@ export const LayoutRoutes: Routes = [
     },
     {
         path: 'perfil',
-        component: PerfilComponent
+        component: PerfilComponent,
+        canActivate: [AuthGuardService],
+    },
+    {
+        path: 'signout',
+        component: SairComponent
     }
 ];

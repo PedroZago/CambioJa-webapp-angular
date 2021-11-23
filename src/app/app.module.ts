@@ -9,6 +9,8 @@ import { LoginModule } from './modules';
 import { CadastroModule } from './modules';
 import { Page404Module } from './modules';
 import { CookieService } from 'ngx-cookie-service';
+import { AuthCookieService } from './services';
+import { AuthGuardService } from './guards';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,9 @@ import { CookieService } from 'ngx-cookie-service';
     AppRoutingModule
   ],
   providers: [
-    CookieService
+    CookieService,
+    AuthCookieService,
+    AuthGuardService
   ],
   bootstrap: [AppComponent]
 })

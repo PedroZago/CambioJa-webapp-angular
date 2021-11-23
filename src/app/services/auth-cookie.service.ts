@@ -1,14 +1,17 @@
 import { Injectable } from '@angular/core';
 
 import { CookieService } from 'ngx-cookie-service';
-import { LoginResponse } from '../models';
+import { LoginResponse } from '../modules';
 
 @Injectable({
   providedIn: 'root'
 })
-export class CookieTokenService {
+export class AuthCookieService {
 
   loginResponse!: LoginResponse;
+
+  token: any = null;
+  usuarioID: any = null;
 
   constructor(
     private cookieService: CookieService
@@ -20,15 +23,18 @@ export class CookieTokenService {
   }
 
   lerCookie(): LoginResponse {
-    const token: string = this.cookieService.get('X-Auth-Token');
-    const usuarioID: string = this.cookieService.get('ID');
+    this.token = this.cookieService.get('X-Auth-Token');
+    this.usuarioID = this.cookieService.get('ID');
 
-    return this.loginResponse = { usuarioID: atob(usuarioID), token: atob(token) };
-    //this.loginResponse = this.cookieTokenService.pegarCookie();
+    return this.loginResponse = { usuarioID: atob(this.usuarioID), token: atob(this.token) };
   }
 
   deletarCookie() {
     this.cookieService.deleteAll();
+  }
+
+  usuarioEstaLogado(): boolean {
+    return "" !== this.cookieService.get('X-Auth-Token') || "" !== this.cookieService.get('ID');
   }
 
 }

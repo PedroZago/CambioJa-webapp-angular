@@ -6,7 +6,8 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { CadastroComponent } from './components';
 import { CadastroService } from './services';
-import { LayoutModule } from '../layout';
+import { LoginModule, LoginService } from '../login';
+import { AuthCookieService } from '../../services';
 
 @NgModule({
   declarations: [
@@ -15,14 +16,16 @@ import { LayoutModule } from '../layout';
   imports: [
     CommonModule,
     RouterModule,
-    LayoutModule,
     FormsModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    LoginModule,
   ],
   exports: [],
   providers: [
-    CadastroService
+    CadastroService,
+    LoginService,
+    AuthCookieService
   ]
 })
 export class CadastroModule { }

@@ -6,15 +6,15 @@
 
   <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
     <li><a [routerLink]="['/home']" class="nav-link px-2 link-secondary">Home</a></li>
-    <li><a [routerLink]="['/cambio']" class="nav-link px-2 link-dark">Cambio</a></li>
+    <li><a [routerLink]="['/cambio']" *ngIf="usuarioEstaLogado()" class="nav-link px-2 link-dark">Cambio</a></li>
     <li><a [routerLink]="['/sobre']" class="nav-link px-2 link-dark">Sobre nós</a></li>
     <li><a [routerLink]="['/contato']" class="nav-link px-2 link-dark">Contato</a></li>
   </ul>
 
   <div class="col-md-3 text-end">
-    <a [routerLink]="['/perfil']" class="btn btn-outline-primary me-2">Perfil</a>
-    <a [routerLink]="['/sair']" class="btn btn-primary">Sair</a>
-    <a [routerLink]="['/signin']" class="btn btn-outline-primary me-2">Login</a>
-    <a [routerLink]="['/signup']" class="btn btn-primary">Cadastro</a>
+    <a [routerLink]="['/perfil']" *ngIf="usuarioEstaLogado()" class="btn btn-outline-primary me-2">Perfil</a>
+    <a [routerLink]="['/signout']" *ngIf="usuarioEstaLogado()" class="btn btn-primary">Sair</a>
+    <a [routerLink]="['/signin']" *ngIf="!usuarioEstaLogado()" class="btn btn-outline-primary me-2">Login</a>
+    <a [routerLink]="['/signup']" *ngIf="!usuarioEstaLogado()" class="btn btn-primary">Cadastro</a>
   </div>
 </header>

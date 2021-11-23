@@ -6,7 +6,6 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { LoginComponent } from './components';
 import { LoginService } from './services';
-import { LayoutModule } from '../layout';
 
 @NgModule({
   declarations: [
@@ -15,7 +14,6 @@ import { LayoutModule } from '../layout';
   imports: [
     CommonModule,
     RouterModule,
-    LayoutModule,
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule

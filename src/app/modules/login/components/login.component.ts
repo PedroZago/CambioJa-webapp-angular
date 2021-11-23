@@ -1,8 +1,9 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
-import { LoginService, CookieTokenService } from '../services';
+import { LoginService } from '../services';
+import { AuthCookieService } from '../../../services';
 import { LoginResponse, Login } from '../models';
 
 @Component({
@@ -29,7 +30,7 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private loginService: LoginService,
-    private cookieTokenService: CookieTokenService,
+    private authCookieService: AuthCookieService,
     private router: Router
   ) { }
 
@@ -44,12 +45,20 @@ export class LoginComponent implements OnInit {
     return this.loginForm.get('senha');
   }
 
+  set email(email: string) {
+    this.loginForm.setValue({ email });
+  }
+
+  set senha(senha: string) {
+    this.loginForm.patchValue({ senha });
+  }
+
   fazerLogin(): void {
     this.loginService.fazerLogin(this.loginForm.value)
       .subscribe(
         response => {
           this.loginResponse = response,
-            this.cookieTokenService.salvarCookie(this.loginResponse),
+            this.authCookieService.salvarCookie(this.loginResponse),
             this.router.navigate(['/home'])
         },
         error => {

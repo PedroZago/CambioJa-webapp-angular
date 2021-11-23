@@ -7,6 +7,7 @@ import {
   CarouselComponent, SobreNosComponent, ContatoComponent, NossoTimeComponent,
   PerfilComponent, EditarSenhaComponent
 } from './components';
+import { SairComponent } from './components/sair/sair.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import {
     ContatoComponent,
     NossoTimeComponent,
     PerfilComponent,
-    EditarSenhaComponent
+    EditarSenhaComponent,
+    SairComponent
   ],
   imports: [
     CommonModule,
