@@ -6,7 +6,7 @@ import {
   FooterComponent, NavbarComponent, PaginaComponent, ContentComponent,
   CarouselComponent, SobreNosComponent, ContatoComponent, NossoTimeComponent,
   PerfilComponent, EditarSenhaComponent
-} from './components/';
+} from './components';
 
 @NgModule({
   declarations: [

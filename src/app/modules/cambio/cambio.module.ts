@@ -4,7 +4,6 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 
-
 import { MoedaService, UsuarioService, CambioService } from './services';
 import { PaginaComponent, SaldoComponent, ConversaoComponent, HistoricoComponent, NossosModulosComponent } from './components';
 import { LayoutModule } from '../layout';
