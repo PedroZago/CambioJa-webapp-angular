@@ -3,29 +3,25 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 
 import {
-  FooterComponent, NavbarComponent, PaginaComponent,
-  CarouselComponent, NossoTimeComponent,
-  EditarSenhaComponent, SairComponent
+  FooterComponent, NavbarComponent, CarouselComponent, NossoTimeComponent
 } from './components';
 
 @NgModule({
   declarations: [
     FooterComponent,
     NavbarComponent,
-    PaginaComponent,
     CarouselComponent,
-    NossoTimeComponent,
-    EditarSenhaComponent,
-    SairComponent
+    NossoTimeComponent
   ],
   imports: [
     CommonModule,
     RouterModule,
   ],
   exports: [
-    NavbarComponent,
     FooterComponent,
-    NossoTimeComponent,
+    NavbarComponent,
+    CarouselComponent,
+    NossoTimeComponent
   ]
 })
 export class LayoutModule { }

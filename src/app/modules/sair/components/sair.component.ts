@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { AuthCookieService } from '../../../../services';
+import { AuthCookieService } from '../../../services';
 
 @Component({
   selector: 'app-sair',
