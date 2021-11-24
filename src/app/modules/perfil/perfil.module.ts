@@ -4,23 +4,24 @@ import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
-import { CadastroComponent } from './components';
-import { CadastroService } from './services';
+import { PerfilComponent } from './components';
+import { LayoutModule } from '../layout';
+import { PerfilService } from './services';
 
 @NgModule({
   declarations: [
-    CadastroComponent
+    PerfilComponent
   ],
   imports: [
     CommonModule,
     RouterModule,
     FormsModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    LayoutModule
   ],
-  exports: [],
   providers: [
-    CadastroService
+    PerfilService
   ]
 })
-export class CadastroModule { }
+export class PerfilModule { }

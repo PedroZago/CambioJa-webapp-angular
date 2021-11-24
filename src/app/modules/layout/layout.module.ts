@@ -3,23 +3,18 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 
 import {
-  FooterComponent, NavbarComponent, PaginaComponent, ContentComponent,
-  CarouselComponent, SobreNosComponent, ContatoComponent, NossoTimeComponent,
-  PerfilComponent, EditarSenhaComponent
+  FooterComponent, NavbarComponent, PaginaComponent,
+  CarouselComponent, NossoTimeComponent,
+  EditarSenhaComponent, SairComponent
 } from './components';
-import { SairComponent } from './components/sair/sair.component';
 
 @NgModule({
   declarations: [
     FooterComponent,
     NavbarComponent,
     PaginaComponent,
-    ContentComponent,
     CarouselComponent,
-    SobreNosComponent,
-    ContatoComponent,
     NossoTimeComponent,
-    PerfilComponent,
     EditarSenhaComponent,
     SairComponent
   ],
@@ -29,7 +24,8 @@ import { SairComponent } from './components/sair/sair.component';
   ],
   exports: [
     NavbarComponent,
-    FooterComponent
+    FooterComponent,
+    NossoTimeComponent,
   ]
 })
 export class LayoutModule { }

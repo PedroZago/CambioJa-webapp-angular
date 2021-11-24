@@ -1,0 +1,67 @@
+<div class="container">
+  <app-navbar></app-navbar>
+</div>
+
+<div class="container-fluid d-flex justify-content-center">
+  <div class="card" style="width: 50rem;">
+    <div class="card-body p-4">
+      <div class="form-login">
+        <form [formGroup]="perfilForm" (ngSubmit)="atualizarUsuario()">
+          <h2 class="mb-3 fw-bold text-center">Perfil</h2>
+
+          <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="nome" formControlName="nome" placeholder="nome" required>
+
+            <label for="nome">NOME</label>
+
+            <div *ngIf="nome.invalid && (nome.dirty || nome.touched)" class="form-text text-danger">
+              <div *ngIf="nome.errors?.['required']">
+                Campo obrigatório.
+              </div>
+            </div>
+          </div>
+
+          <div class="form-floating mb-3">
+            <input type="email" class="form-control" id="email" formControlName="email" placeholder="nome@exemplo.com"
+              required>
+
+            <label for="email">E-MAIL</label>
+
+            <div *ngIf="email.invalid && (email.dirty || email.touched)" class="form-text text-danger">
+              <div *ngIf="email.errors?.['email']">
+                E-mail inválido. Exemplo: seunome@mail.com
+              </div>
+
+              <div *ngIf="email.errors?.['required']">
+                Campo obrigatório.
+              </div>
+            </div>
+          </div>
+
+          <div class="form-floating mb-3">
+            <select class="form-select" id="sexo" formControlName="sexo" aria-label="Feminino">
+              <option [value]="'Feminino'">Feminino</option>
+              <option [value]="'Masculino'">Masculino</option>
+              <option [value]="'Outro'">Outro</option>
+            </select>
+
+            <label for="sexo">SEXO</label>
+
+            <div *ngIf="sexo.invalid && (sexo.dirty || sexo.touched)" class="form-text text-danger">
+              <div *ngIf="sexo.errors?.['required']">
+                Campo obrigatório.
+              </div>
+            </div>
+          </div>
+
+          <button class="w-100 btn btn-lg btn-primary mb-3" type="submit"
+            [disabled]="perfilForm.invalid">Atualizar</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <app-footer></app-footer>
+</div>

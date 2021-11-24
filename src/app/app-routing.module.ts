@@ -1,11 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { CadastroRoutes } from './modules';
-import { CambioRoutes } from './modules';
-import { LayoutRoutes } from './modules';
-import { LoginRoutes } from './modules';
-import { Page404Routes } from './modules';
+import {
+  CadastroRoutes, CambioRoutes, LayoutRoutes, LoginRoutes,
+  Page404Routes, PerfilRoutes, ContatoRoutes, SobreNosRoutes
+} from './modules';
 
 const routes: Routes = [
   {
@@ -15,8 +14,11 @@ const routes: Routes = [
   },
   ...LoginRoutes,
   ...CadastroRoutes,
-  ...CambioRoutes,
   ...LayoutRoutes,
+  ...CambioRoutes,
+  ...PerfilRoutes,
+  ...ContatoRoutes,
+  ...SobreNosRoutes,
   ...Page404Routes,
 ];
 

@@ -3,7 +3,8 @@ import { HttpClient } from '@angular/common/http';
 
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
-import { Cadastro } from '../models'
+import { Cadastro } from '../models';
+import { environment } from '../../../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +15,7 @@ export class CadastroService {
     private http: HttpClient,
   ) { }
 
-  private readonly BASE_URL = 'http://localhost:3000'
+  private readonly BASE_URL = environment.BASE_URL;
 
   fazerCadastro(usuario: Cadastro): Observable<any> {
     let params = `/api/users`;

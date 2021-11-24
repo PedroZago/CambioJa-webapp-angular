@@ -10,23 +10,20 @@ export class AuthCookieService {
 
   loginResponse!: LoginResponse;
 
-  token: any = null;
-  usuarioID: any = null;
-
   constructor(
     private cookieService: CookieService
   ) { }
 
   salvarCookie(cookie: LoginResponse) {
     this.cookieService.set('X-Auth-Token', btoa(cookie.token));
-    this.cookieService.set('ID', btoa(cookie.usuarioID))
+    this.cookieService.set('ID', btoa(cookie.usuarioID));
   }
 
   lerCookie(): LoginResponse {
-    this.token = this.cookieService.get('X-Auth-Token');
-    this.usuarioID = this.cookieService.get('ID');
+    const token: string = this.cookieService.get('X-Auth-Token');
+    const usuarioID: string = this.cookieService.get('ID');
 
-    return this.loginResponse = { usuarioID: atob(this.usuarioID), token: atob(this.token) };
+    return this.loginResponse = { usuarioID: atob(usuarioID), token: atob(token) };
   }
 
   deletarCookie() {
