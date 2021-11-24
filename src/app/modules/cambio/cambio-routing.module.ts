@@ -1,12 +1,12 @@
 import { Routes } from '@angular/router';
 
-import { HistoricoComponent, PaginaComponent, ConversaoComponent, SaldoComponent } from './components';
+import { HistoricoComponent, ConversaoComponent, SaldoComponent, CambioComponent } from './components';
 import { AuthGuardService } from '../../guards';
 
 export const CambioRoutes: Routes = [
     {
         path: 'cambio',
-        component: PaginaComponent,
+        component: CambioComponent,
         canActivate: [AuthGuardService],
         children: [
             {

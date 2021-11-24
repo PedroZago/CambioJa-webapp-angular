@@ -90,8 +90,4 @@ export class CadastroComponent implements OnInit {
       );
   }
 
-  invertePossuiErro() {
-    this.possuiErro = !this.possuiErro;
-  }
-
 }

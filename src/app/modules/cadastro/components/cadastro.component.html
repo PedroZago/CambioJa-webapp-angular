@@ -1,79 +1,79 @@
 <div class="container-fluid d-flex justify-content-center">
   <div class="card bg-light shadow" style="width: 50rem;">
     <div class="card-body p-4">
-      <div class="form-login">
-        <form [formGroup]="cadastroForm" (ngSubmit)="fazerCadastro()">
-          <h2 class="mb-3 fw-bold">Criar uma conta</h2>
+      <form [formGroup]="cadastroForm" (ngSubmit)="fazerCadastro()">
+        <h2 class="mb-3 fw-bold">Criar uma conta</h2>
 
-          <div class="form-floating mb-3">
-            <input type="text" class="form-control" id="nome" formControlName="nome" placeholder="nome" required>
+        <div class="form-floating mb-3">
+          <input type="text" class="form-control" id="nome" formControlName="nome" placeholder="Informe o seu nome"
+            required>
 
-            <label for="nome">NOME</label>
+          <label for="nome">NOME</label>
 
-            <div *ngIf="nome.invalid && (nome.dirty || nome.touched)" class="form-text text-danger">
-              <div *ngIf="nome.errors?.['required']">
-                Campo obrigatório.
-              </div>
+          <div *ngIf="nome.invalid && (nome.dirty || nome.touched)" class="form-text text-danger">
+            <div *ngIf="nome.errors?.['required']">
+              Campo obrigatório.
             </div>
           </div>
+        </div>
 
-          <div class="form-floating mb-3">
-            <input type="email" class="form-control" id="email" formControlName="email" placeholder="nome@exemplo.com"
-              required>
+        <div class="form-floating mb-3">
+          <input type="email" class="form-control" id="email" formControlName="email" placeholder="Informe o seu e-mail"
+            required>
 
-            <label for="email">E-MAIL</label>
+          <label for="email">E-MAIL</label>
 
-            <div *ngIf="email.invalid && (email.dirty || email.touched)" class="form-text text-danger">
-              <div *ngIf="email.errors?.['email']">
-                E-mail inválido. Exemplo: seunome@mail.com
-              </div>
+          <div *ngIf="email.invalid && (email.dirty || email.touched)" class="form-text text-danger">
+            <div *ngIf="email.errors?.['email']">
+              E-mail inválido. Exemplo: seunome@mail.com
+            </div>
 
-              <div *ngIf="email.errors?.['required']">
-                Campo obrigatório.
-              </div>
+            <div *ngIf="email.errors?.['required']">
+              Campo obrigatório.
             </div>
           </div>
+        </div>
 
-          <div class="form-floating mb-3">
-            <input type="password" class="form-control" id="senha" formControlName="senha" placeholder="senha" required>
+        <div class="form-floating mb-3">
+          <input type="password" class="form-control" id="senha" formControlName="senha"
+            placeholder="Informe a sua senha" required>
 
-            <label for="senha">SENHA</label>
+          <label for="senha">SENHA</label>
 
-            <div *ngIf="senha.invalid && (senha.dirty || senha.touched)" class="form-text text-danger">
-              <div *ngIf="senha.errors?.['minlength']">
-                Mínimo de 8 caracteres
-              </div>
+          <div *ngIf="senha.invalid && (senha.dirty || senha.touched)" class="form-text text-danger">
+            <div *ngIf="senha.errors?.['minlength']">
+              Mínimo de 8 caracteres
+            </div>
 
-              <div *ngIf="senha.errors?.['required']">
-                Campo obrigatório.
-              </div>
+            <div *ngIf="senha.errors?.['required']">
+              Campo obrigatório.
             </div>
           </div>
+        </div>
 
-          <div class="form-floating mb-3">
-            <select class="form-select" id="sexo" formControlName="sexo" aria-label="Feminino">
-              <option [value]="'Feminino'">Feminino</option>
-              <option [value]="'Masculino'">Masculino</option>
-              <option [value]="'Outro'">Outro</option>
-            </select>
+        <div class="form-floating mb-3">
+          <select class="form-select" id="sexo" formControlName="sexo" aria-label="Floating label select example">
+            <option [value]="'Feminino'">Feminino</option>
+            <option [value]="'Masculino'">Masculino</option>
+            <option [value]="'Outro'">Outro</option>
+          </select>
 
-            <label for="sexo">SEXO</label>
+          <label for="sexo">SEXO</label>
 
-            <div *ngIf="sexo.invalid && (sexo.dirty || sexo.touched)" class="form-text text-danger">
-              <div *ngIf="sexo.errors?.['required']">
-                Campo obrigatório.
-              </div>
+          <div *ngIf="sexo.invalid && (sexo.dirty || sexo.touched)" class="form-text text-danger">
+            <div *ngIf="sexo.errors?.['required']">
+              Campo obrigatório.
             </div>
           </div>
+        </div>
 
-          <button class="w-100 btn btn-lg btn-primary mb-3" type="submit"
-            [disabled]="cadastroForm.invalid">Cadastrar</button>
+        <button class="w-100 btn btn-lg btn-primary mb-3" type="submit"
+          [disabled]="cadastroForm.invalid">Cadastrar</button>
 
-          <div class="form-text">
-            <a [routerLink]="['/signin']">Já tem uma conta?</a>
-          </div>
-        </form>
-      </div>
+        <div class="form-text">
+          <a [routerLink]="['/signin']">Já tem uma conta?</a>
+        </div>
+      </form>
     </div>
   </div>
 </div>

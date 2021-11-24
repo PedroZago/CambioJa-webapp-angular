@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+
+import { ContatoService } from '../services';
+import { Contato } from '../models';
 
 @Component({
   selector: 'app-contato',
@@ -7,9 +12,43 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ContatoComponent implements OnInit {
 
-  constructor() { }
+  contato!: Contato;
+  possuiErro!: boolean;
+
+  contatoForm = new FormGroup({
+    nome: new FormControl(null, [
+      Validators.required
+    ]),
+    email: new FormControl(null, [
+      Validators.required
+    ]),
+    mensagem: new FormControl(null, [
+      Validators.required
+    ]),
+  })
+
+  constructor(
+    private contatoService: ContatoService,
+    private router: Router
+  ) { }
+
+  get nome(): any {
+    return this.contatoForm.get('nome');
+  }
+
+  get email(): any {
+    return this.contatoForm.get('email');
+  }
+
+  get mensagem(): any {
+    return this.contatoForm.get('mensagem');
+  }
 
   ngOnInit(): void {
+  }
+
+  enviarMensagem(): void {
+    this.contatoService.enviarMensagem(this.contatoForm.value)
   }
 
 }

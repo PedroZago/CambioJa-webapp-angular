@@ -4,7 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 import {
   CadastroRoutes, CambioRoutes, SairRoutes, LoginRoutes,
   Page404Routes, PerfilRoutes, ContatoRoutes, SobreNosRoutes,
-  HomeRoutes
+  HomeRoutes, AlterarSenhaRoutes
 } from './modules';
 
 const routes: Routes = [
@@ -14,6 +14,7 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   ...LoginRoutes,
+  ...AlterarSenhaRoutes,
   ...CadastroRoutes,
   ...ContatoRoutes,
   ...SobreNosRoutes,

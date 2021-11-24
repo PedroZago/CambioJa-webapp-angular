@@ -26,12 +26,17 @@ export class AuthCookieService {
     return this.loginResponse = { usuarioID: atob(usuarioID), token: atob(token) };
   }
 
+  extrarID(): number {
+    const usuarioID: string = atob(this.cookieService.get('ID'));
+    return parseInt(usuarioID, 10);
+  }
+
   deletarCookie() {
     this.cookieService.deleteAll();
   }
 
-  usuarioEstaLogado(): boolean {
-    return "" !== this.cookieService.get('X-Auth-Token') || "" !== this.cookieService.get('ID');
+  estaAutenticado(): boolean {
+    return "" !== this.cookieService.get('X-Auth-Token');
   }
 
 }

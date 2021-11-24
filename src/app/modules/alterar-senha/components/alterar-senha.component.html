@@ -1,0 +1,58 @@
+<div class="container">
+  <app-navbar></app-navbar>
+</div>
+
+<h1 class="mb-5 text-center">Alterar senha</h1>
+
+<div class="container-fluid d-flex justify-content-center">
+
+
+  <div class="card" style="width: 50rem;">
+    <div class="card-body p-4">
+      <form [formGroup]="senhaForm" (ngSubmit)="alterarSenha()">
+
+        <div class="form-floating mb-3">
+          <input type="password" class="form-control" id="senhaAtual" formControlName="senhaAtual"
+            placeholder="Informe a sua senha atual" required>
+
+          <label for="senhaAtual">SENHA ATUAL</label>
+
+          <div *ngIf="senhaAtual.invalid && (senhaAtual.dirty || senhaAtual.touched)" class="form-text text-danger">
+            <div *ngIf="senhaAtual.errors?.['minlength']">
+              Mínimo de 8 caracteres
+            </div>
+
+            <div *ngIf="senhaAtual.errors?.['required']">
+              Campo obrigatório.
+            </div>
+          </div>
+        </div>
+
+        <div class="form-floating mb-3">
+          <input type="password" class="form-control" id="senhaNova" formControlName="senhaNova"
+            placeholder="Informe a sua nova senha" required>
+
+          <label for="senhaNova">SENHA NOVA</label>
+
+          <div *ngIf="senhaNova.invalid && (senhaNova.dirty || senhaNova.touched)" class="form-text text-danger">
+            <div *ngIf="senhaNova.errors?.['minlength']">
+              Mínimo de 8 caracteres
+            </div>
+
+            <div *ngIf="senhaNova.errors?.['required']">
+              Campo obrigatório.
+            </div>
+          </div>
+        </div>
+
+        <button class="w-100 btn btn-lg btn-primary mb-3" type="submit"
+          [disabled]="senhaForm.invalid">Alterar</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+<div class="container">
+  <app-footer></app-footer>
+</div>

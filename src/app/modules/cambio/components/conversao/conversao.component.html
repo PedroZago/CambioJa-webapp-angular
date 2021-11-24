@@ -1,8 +1,31 @@
-<div class="card text-center">
-  <div class="card-header">
-    Featured
+<form [formGroup]="conversaoForm" (ngSubmit)="converterMoeda()">
+  <div class="form-floating mb-3">
+    <select class="form-select" id="moeda" formControlName="moeda" aria-label="Floating label select example">
+      <option [value]="'Euro'">Euro</option>
+      <option [value]="'Dolar'">Dolar</option>
+      <option [value]="'Libra'">Libra</option>
+    </select>
+
+    <label for="moeda">MOEDA</label>
+
+    <div *ngIf="moeda.invalid && (moeda.dirty || moeda.touched)" class="form-text text-danger">
+      <div *ngIf="moeda.errors?.['required']">
+        Campo obrigatório.
+      </div>
+    </div>
   </div>
-  <div class="card-body">
-    <p>conversao</p>
+
+  <div class="form-floating mb-3">
+    <input type="text" class="form-control" id="nome" formControlName="nome" placeholder="Informe o seu nome" required>
+
+    <label for="nome">NOME</label>
+
+    <div *ngIf="nome.invalid && (nome.dirty || nome.touched)" class="form-text text-danger">
+      <div *ngIf="nome.errors?.['required']">
+        Campo obrigatório.
+      </div>
+    </div>
   </div>
-</div>
+
+  <button class="w-100 btn btn-lg btn-primary mb-3" type="submit" [disabled]="conversaoForm.invalid">Converter</button>
+</form>

@@ -7,6 +7,6 @@ export const PerfilRoutes: Routes = [
     {
         path: 'perfil',
         component: PerfilComponent,
-        canActivate: [AuthGuardService],
+        canActivate: [AuthGuardService]
     }
 ];

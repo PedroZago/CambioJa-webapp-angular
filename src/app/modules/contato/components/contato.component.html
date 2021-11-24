@@ -1,13 +1,84 @@
 <div class="container">
-    <app-navbar></app-navbar>
+  <app-navbar></app-navbar>
+</div>
+
+<div class="container">
+  <h1 class="mb-5 text-center">Contato</h1>
+
+  <div class="container-fluid d-flex justify-content-center">
+    <div class="card" style="width: 100rem;">
+      <div class="row">
+        <div class="col-6">
+          <div class="card-body p-4">
+            <h2 class="mb-3">Localização</h2>
+
+            <p class="fs-5">Rua do Bobos, 0 - Vila dos Perdidos</p>
+            <p class="fs-5">CEP: 12345-987 / Alagoinha - SP</p>
+
+            <h2 class="mb-3 mt-4">Siga-nos</h2>
+
+            <i class="bi bi-facebook"></i>
+            <i class="bi bi-whatsapp"></i>
+            <i class="bi bi-instagram"></i>
+            <i class="bi bi-youtube"></i>
+            <i class="bi bi-discord"></i>
+          </div>
+        </div>
+
+        <div class="col-6">
+          <div class="card-body p-4">
+            <form [formGroup]="contatoForm" (ngSubmit)="enviarMensagem()">
+              <div class="form-floating mb-3">
+                <input type="text" class="form-control" id="nome" formControlName="nome"
+                  placeholder="Informe o seu nome" required>
+
+                <label for="nome">NOME</label>
+
+                <div *ngIf="nome.invalid && (nome.dirty || nome.touched)" class="form-text text-danger">
+                  <div *ngIf="nome.errors?.['required']">
+                    Campo obrigatório.
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-floating mb-3">
+                <input type="email" class="form-control" id="email" formControlName="email"
+                  placeholder="Informe o seu e-mail" required>
+
+                <label for="email">E-MAIL</label>
+
+                <div *ngIf="email.invalid && (email.dirty || email.touched)" class="form-text text-danger">
+                  <div *ngIf="email.errors?.['required']">
+                    Campo obrigatório.
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-floating mb-3">
+
+                <textarea class="form-control" placeholder="Digite aqui sua mensagem..." id="mensagem"
+                  formControlName="mensagem" style="height: 150px" required></textarea>
+                <label for="mensagem">MENSAGEM</label>
+
+                <div *ngIf="mensagem.invalid && (mensagem.dirty || mensagem.touched)" class="form-text text-danger">
+                  <div *ngIf="mensagem.errors?.['required']">
+                    Campo obrigatório.
+                  </div>
+                </div>
+
+              </div>
+
+              <button class="w-100 btn btn-lg btn-primary" type="submit"
+                [disabled]="contatoForm.invalid">Enviar</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-  
-  <div class="container text-center">
-    <h1 class="mb-5">Contato</h1>
-  
-  </div>
-  
-  <div class="container">
-    <app-footer></app-footer>
-  </div>
-  
+
+</div>
+
+<div class="container">
+  <app-footer></app-footer>
+</div>

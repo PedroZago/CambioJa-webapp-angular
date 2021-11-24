@@ -18,7 +18,7 @@ export class NavbarComponent implements OnInit {
   }
 
   usuarioEstaLogado(): boolean {
-    return this.authCookieService.usuarioEstaLogado();
+    return this.authCookieService.estaAutenticado();
   }
 
 }

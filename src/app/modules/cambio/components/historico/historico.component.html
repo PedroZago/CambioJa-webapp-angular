@@ -1,8 +1,20 @@
-<div class="card text-center">
-  <div class="card-header">
-    Featured
+<form [formGroup]="historicoForm" (ngSubmit)="pegarHistorico()">
+  <div class="form-floating mb-3">
+    <select class="form-select" id="moeda" formControlName="moeda" aria-label="Floating label select example">
+      <option [value]="'Euro'">Euro</option>
+      <option [value]="'Dolar'">Dolar</option>
+      <option [value]="'Libra'">Libra</option>
+    </select>
+
+    <label for="moeda">MOEDA</label>
+
+    <div *ngIf="moeda.invalid && (moeda.dirty || moeda.touched)" class="form-text text-danger">
+      <div *ngIf="moeda.errors?.['required']">
+        Campo obrigatório.
+      </div>
+    </div>
   </div>
-  <div class="card-body">
-    <p>historico</p>
-  </div>
-</div>
+
+  <button class="w-100 btn btn-lg btn-primary mb-3" type="submit" [disabled]="historicoForm.invalid">Ver
+    histórico</button>
+</form>

@@ -56,18 +56,15 @@ export class PerfilComponent implements OnInit {
   }
 
   dadosUsuario() {
-    const cookie: any = this.authCookieService.lerCookie();
-
-    this.perfilService.dadosUsuario(cookie)
-      .subscribe(
-        response => {
-            console.log(response)
-        },
-        error => {
-          this.possuiErro = true
-        }
-      )
-
+    // this.perfilService.dadosUsuario(this.authCookieService.extrarID())
+    //   .subscribe(
+    //     response => {
+    //       console.log(response)
+    //     },
+    //     error => {
+    //       this.possuiErro = true
+    //     }
+    //   )
   }
 
 }
