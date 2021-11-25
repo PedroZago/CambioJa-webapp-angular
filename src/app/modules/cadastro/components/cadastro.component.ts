@@ -85,9 +85,17 @@ export class CadastroComponent implements OnInit {
 
         },
         error => {
-          this.possuiErro = true
+          if (error.error.err.match(/([\w])([\d]+)/i)['0'] == "1062") {
+            this.possuiErro = true;
+            return
+          }
+          this.possuiErro = true;
         }
       );
+  }
+
+  invertePossuiErro() {
+    this.possuiErro = !this.possuiErro;
   }
 
 }

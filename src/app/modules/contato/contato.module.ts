@@ -6,6 +6,7 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { ContatoComponent } from './components';
 import { LayoutModule } from '../layout';
+import { ContatoService } from './services';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,9 @@ import { LayoutModule } from '../layout';
     HttpClientModule,
     ReactiveFormsModule,
     LayoutModule
+  ],
+  providers: [
+    ContatoService,
   ]
 })
 export class ContatoModule { }

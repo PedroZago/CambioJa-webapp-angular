@@ -20,12 +20,7 @@ import { CookieService } from 'ngx-cookie-service';
   providers: [
     CookieService,
     AuthCookieService,
-    AuthGuardService,
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: TokenInterceptorService,
-      multi: true
-    },
+    AuthGuardService
   ],
   bootstrap: [AppComponent]
 })

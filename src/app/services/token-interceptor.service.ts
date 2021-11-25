@@ -19,11 +19,11 @@ export class TokenInterceptorService implements HttpInterceptor {
   ) { }
 
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    // request = request.clone({
-    //   setHeaders: {
-    //     Authorization: `Bearer ${this.authCookieService.lerCookie().token}`
-    //   }
-    // });
+    request = request.clone({
+      setHeaders: {
+        Authorization: `Bearer ${this.authCookieService.extrairToken()}`
+      }
+    });
 
     return next.handle(request)
   }

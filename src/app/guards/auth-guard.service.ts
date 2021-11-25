@@ -17,7 +17,7 @@ export class AuthGuardService implements CanActivate {
   ) { }
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
-    if (route.url[0].path === "perfil" || route.url[0].path === "cambio") {
+    if (route.url[0].path === "perfil" || route.url[0].path === "cambio" || route.url[0].path === "alterar-senha" || route.url[0].path === "signout") {
       if (this.authCookieService.estaAutenticado()) {
         return true;
       } else {

@@ -1,9 +1,7 @@
-<form [formGroup]="saldoForm" (ngSubmit)="exibirSaldo()">
+<form [formGroup]="saldoForm" (ngSubmit)="pegarSaldo()">
   <div class="form-floating mb-3">
     <select class="form-select" id="moeda" formControlName="moeda" aria-label="Floating label select example">
-      <option [value]="'Euro'">Euro</option>
-      <option [value]="'Dolar'">Dolar</option>
-      <option [value]="'Libra'">Libra</option>
+      <option *ngFor="let moeda of moedas" [value]="moeda.moedaID">{{ moeda.nome }}</option>
     </select>
 
     <label for="moeda">MOEDA</label>

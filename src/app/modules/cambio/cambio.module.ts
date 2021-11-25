@@ -4,7 +4,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 
-import { MoedaService, UsuarioService, CambioService } from './services';
+import { MoedaService, CambioService } from './services';
 import { SaldoComponent, ConversaoComponent, HistoricoComponent } from './components';
 import { LayoutModule } from '../layout';
 import { CambioComponent } from './components/cambio/cambio.component';
@@ -25,8 +25,7 @@ import { CambioComponent } from './components/cambio/cambio.component';
   ],
   providers: [
     MoedaService,
-    CambioService,
-    UsuarioService
+    CambioService
   ]
 })
 export class CambioModule { }

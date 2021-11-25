@@ -31,6 +31,11 @@ export class AuthCookieService {
     return parseInt(usuarioID, 10);
   }
 
+  extrairToken(): string {
+    const token: string = atob(this.cookieService.get('X-Auth-Token'));
+    return token
+  }
+
   deletarCookie() {
     this.cookieService.deleteAll();
   }

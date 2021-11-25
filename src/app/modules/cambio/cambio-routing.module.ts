@@ -10,6 +10,11 @@ export const CambioRoutes: Routes = [
         canActivate: [AuthGuardService],
         children: [
             {
+                path: '',
+                pathMatch: 'full',
+                redirectTo: 'saldo'
+            },
+            {
                 path: 'saldo',
                 component: SaldoComponent,
             },

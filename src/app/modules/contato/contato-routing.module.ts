@@ -4,7 +4,7 @@ import { ContatoComponent } from './components';
 
 export const ContatoRoutes: Routes = [
     {
-        path: 'contato',
+        path: 'contact',
         component: ContatoComponent
     }
 ];

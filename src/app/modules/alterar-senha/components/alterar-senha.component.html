@@ -15,7 +15,7 @@
           <input type="password" class="form-control" id="senhaAtual" formControlName="senhaAtual"
             placeholder="Informe a sua senha atual" required>
 
-          <label for="senhaAtual">SENHA ATUAL</label>
+          <label for="senhaAtual">Senha atual</label>
 
           <div *ngIf="senhaAtual.invalid && (senhaAtual.dirty || senhaAtual.touched)" class="form-text text-danger">
             <div *ngIf="senhaAtual.errors?.['minlength']">
@@ -32,7 +32,7 @@
           <input type="password" class="form-control" id="senhaNova" formControlName="senhaNova"
             placeholder="Informe a sua nova senha" required>
 
-          <label for="senhaNova">SENHA NOVA</label>
+          <label for="senhaNova">Senha nova</label>
 
           <div *ngIf="senhaNova.invalid && (senhaNova.dirty || senhaNova.touched)" class="form-text text-danger">
             <div *ngIf="senhaNova.errors?.['minlength']">
@@ -45,14 +45,42 @@
           </div>
         </div>
 
-        <button class="w-100 btn btn-lg btn-primary mb-3" type="submit"
-          [disabled]="senhaForm.invalid">Alterar</button>
+        <div class="form-floating mb-3">
+          <input type="password" class="form-control" id="confirmarSenhaNova" formControlName="confirmarSenhaNova"
+            placeholder="Informe a sua nova senha" required>
+
+          <label for="confirmarSenhaNova">Confirmar senha nova</label>
+
+          <div *ngIf="confirmarSenhaNova.invalid && (confirmarSenhaNova.dirty || confirmarSenhaNova.touched)"
+            class="form-text text-danger">
+            <div *ngIf="confirmarSenhaNova.errors?.['minlength']">
+              Mínimo de 8 caracteres
+            </div>
+
+            <div *ngIf="confirmarSenhaNova.errors?.['required']">
+              Campo obrigatório.
+            </div>
+          </div>
+        </div>
+
+        <button class="w-100 btn btn-lg btn-primary mb-3" type="submit" [disabled]="senhaForm.invalid">Alterar</button>
       </form>
     </div>
   </div>
 </div>
 
-
 <div class="container">
   <app-footer></app-footer>
+</div>
+
+<div *ngIf="senhaIguais" class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
+  <div id="liveToast" class="toast show" role="alert" aria-live="assertive" aria-atomic="true">
+    <div class="d-flex">
+      <div class="toast-body">
+        As senhas novas näo coincidem.
+      </div>
+      <button type="button" class="btn-close me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"
+        (click)="inverteSenhasIguais()"></button>
+    </div>
+  </div>
 </div>

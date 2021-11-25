@@ -6,6 +6,7 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AlterarSenhaComponent } from './components';
 import { LayoutModule } from '../layout';
+import { AlterarSenhaService } from './services';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,9 @@ import { LayoutModule } from '../layout';
     HttpClientModule,
     ReactiveFormsModule,
     LayoutModule
+  ],
+  providers: [
+    AlterarSenhaService
   ]
 })
 export class AlterarSenhaModule { }

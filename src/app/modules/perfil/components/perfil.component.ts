@@ -52,19 +52,29 @@ export class PerfilComponent implements OnInit {
   }
 
   atualizarUsuario() {
-    this.perfilService
+    this.perfil = { nome: this.nome.value, email: this.email.value, sexo: this.sexo.value }
+
+    this.perfilService.atualizarUsuario(this.perfil, this.authCookieService.extrarID())
+      .subscribe(
+        response => {
+          console.log(response)
+        },
+        error => {
+          this.possuiErro = true
+        }
+      )
   }
 
   dadosUsuario() {
-    // this.perfilService.dadosUsuario(this.authCookieService.extrarID())
-    //   .subscribe(
-    //     response => {
-    //       console.log(response)
-    //     },
-    //     error => {
-    //       this.possuiErro = true
-    //     }
-    //   )
+    this.perfilService.dadosUsuario(this.authCookieService.extrarID())
+      .subscribe(
+        response => {
+          this.perfilForm.patchValue(response)
+        },
+        error => {
+          this.possuiErro = true
+        }
+      )
   }
 
 }

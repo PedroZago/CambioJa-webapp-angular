@@ -4,7 +4,7 @@ import { SobreNosComponent } from './components';
 
 export const SobreNosRoutes: Routes = [
     {
-        path: 'sobre',
+        path: 'about',
         component: SobreNosComponent
     }
 ];
