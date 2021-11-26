@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { MoedaService } from '../../../moeda';
+import { MoedaService } from '../../services';
 
 @Component({
   selector: 'app-listar-moeda',

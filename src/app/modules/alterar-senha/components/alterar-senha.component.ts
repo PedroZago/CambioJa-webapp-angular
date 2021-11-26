@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
 
 import { AlterarSenhaService } from '../services';
 import { AuthCookieService } from '../../../services';
@@ -34,11 +33,10 @@ export class AlterarSenhaComponent implements OnInit {
 
   constructor(
     private alterarSenhaService: AlterarSenhaService,
-    private authCookieService: AuthCookieService,
+    private authCookieService: AuthCookieService
   ) { }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void { }
 
   get senhaAtual(): any {
     return this.senhaForm.get('senhaAtual');

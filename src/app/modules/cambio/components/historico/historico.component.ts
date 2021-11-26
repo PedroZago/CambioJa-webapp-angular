@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 
-import { Saldo, Cambio } from '../../models';
+import { Saldo, } from '../../models';
 import { AuthCookieService } from '../../../../services';
 import { MoedaService } from '../../../moeda';
 import { CambioService } from '../../services';

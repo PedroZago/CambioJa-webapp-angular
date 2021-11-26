@@ -1,6 +1,9 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { RouterTestingModule } from '@angular/router/testing';
 
 import { AtualizarMoedaComponent } from './atualizar-moeda.component';
+import { MoedaService } from '../../../moeda';
 
 describe('AtualizarMoedaComponent', () => {
   let component: AtualizarMoedaComponent;
@@ -8,9 +11,11 @@ describe('AtualizarMoedaComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ AtualizarMoedaComponent ]
+      declarations: [AtualizarMoedaComponent],
+      imports: [HttpClientTestingModule, RouterTestingModule],
+      providers: [MoedaService]
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {

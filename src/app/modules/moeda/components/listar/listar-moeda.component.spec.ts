@@ -1,6 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 import { ListarMoedaComponent } from './listar-moeda.component';
+import { MoedaService } from '../../services';
 
 describe('ListarMoedaComponent', () => {
   let component: ListarMoedaComponent;
@@ -8,9 +10,11 @@ describe('ListarMoedaComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ListarMoedaComponent ]
+      declarations: [ListarMoedaComponent],
+      imports: [HttpClientTestingModule],
+      providers: [MoedaService]
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {

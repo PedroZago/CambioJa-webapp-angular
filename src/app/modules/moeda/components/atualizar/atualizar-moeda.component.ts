@@ -4,7 +4,6 @@ import { Router, ActivatedRoute } from '@angular/router';
 
 import { MoedaService } from '../../../moeda';
 import { Moeda, } from '../../../cambio';
-import { valorMaximoValidator } from '../../../../directives';
 
 @Component({
   selector: 'app-atualizar-moeda',

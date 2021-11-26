@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
 
 import { ContatoService } from '../services';
 import { Contato } from '../models';
@@ -28,8 +27,7 @@ export class ContatoComponent implements OnInit {
   })
 
   constructor(
-    private contatoService: ContatoService,
-    private router: Router
+    private contatoService: ContatoService
   ) { }
 
   get nome(): any {

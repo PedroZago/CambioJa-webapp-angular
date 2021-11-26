@@ -1,6 +1,10 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 import { SaldoComponent } from './saldo.component';
+import { AuthCookieService } from '../../../../services';
+import { MoedaService } from '../../../moeda';
+import { CambioService } from '../../services';
 
 describe('SaldoComponent', () => {
   let component: SaldoComponent;
@@ -8,9 +12,11 @@ describe('SaldoComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ SaldoComponent ]
+      declarations: [SaldoComponent],
+      imports: [HttpClientTestingModule],
+      providers: [MoedaService, AuthCookieService, CambioService]
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {
