@@ -56,9 +56,6 @@ export class PerfilComponent implements OnInit {
 
     this.perfilService.atualizarUsuario(this.perfil, this.authCookieService.extrarID())
       .subscribe(
-        response => {
-          console.log(response)
-        },
         error => {
           this.possuiErro = true
         }

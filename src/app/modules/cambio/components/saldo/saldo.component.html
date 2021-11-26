@@ -1,17 +1,35 @@
-<form [formGroup]="saldoForm" (ngSubmit)="pegarSaldo()">
-  <div class="form-floating mb-3">
-    <select class="form-select" id="moeda" formControlName="moeda" aria-label="Floating label select example">
-      <option *ngFor="let moeda of moedas" [value]="moeda.moedaID">{{ moeda.nome }}</option>
-    </select>
+<h2 class="mb-5 text-center">Saldo</h2>
 
-    <label for="moeda">MOEDA</label>
+<div class="container-fluid d-flex justify-content-center">
+  <div class="card" style="width: 70rem;">
+    <div class="card-body p-4">
 
-    <div *ngIf="moeda.invalid && (moeda.dirty || moeda.touched)" class="form-text text-danger">
-      <div *ngIf="moeda.errors?.['required']">
-        Campo obrigatório.
+      <form [formGroup]="saldoForm">
+        <div class="form-floating mb-3">
+          <select class="form-select" id="moeda" formControlName="moeda" aria-label="Floating label select example"
+            (change)="moedaSelecionada($event)">
+            <option *ngFor="let moeda of moedas" [value]="moeda.moedaID">{{ moeda.nome }}</option>
+          </select>
+
+          <label for="moeda">Moeda</label>
+
+          <div *ngIf="moeda.invalid && (moeda.dirty || moeda.touched)" class="form-text text-danger">
+            <div *ngIf="moeda.errors?.['required']">
+              Campo obrigatório.
+            </div>
+          </div>
+        </div>
+      </form>
+
+      <div class="d-flex justify-content-center text-center">
+        <div class="card" style="width: 18rem;">
+          <div class="card-body">
+            <h5 class="card-title">Saldo atual da moeda</h5>
+            <p class="card-text">{{ saldoTotal | currency:codISO:'symbol-narrow':'1.2-2'}}</p>
+          </div>
+        </div>
       </div>
+
     </div>
   </div>
-
-  <button class="w-100 btn btn-lg btn-primary mb-3" type="submit" [disabled]="saldoForm.invalid">Ver saldo</button>
-</form>
+</div>

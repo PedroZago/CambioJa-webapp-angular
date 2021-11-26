@@ -6,7 +6,15 @@
 
   <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
     <li><a [routerLink]="['/home']" class="nav-link px-2 link-dark">Home</a></li>
-    <li><a [routerLink]="['/cambio/saldo']" *ngIf="usuarioEstaLogado()" class="nav-link px-2 link-dark">Cambio</a></li>
+    <li><a class="nav-link px-2 link-dark" *ngIf="usuarioEstaLogado()" role="button" id="dropdownMenuLink"
+        data-bs-toggle="dropdown" aria-expanded="false">Cambio</a>
+      <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+        <li><a class="dropdown-item" [routerLink]="['/cambio/saldo']">Saldo</a></li>
+        <li><a class="dropdown-item" [routerLink]="['/cambio/historico']">Histórico</a></li>
+        <li><a class="dropdown-item" [routerLink]="['/cambio/conversao']">Converter</a></li>
+      </ul>
+    </li>
+    <li><a [routerLink]="['/moeda']" *ngIf="usuarioEstaLogado()" class="nav-link px-2 link-dark">Moeda</a></li>
     <li><a [routerLink]="['/about']" class="nav-link px-2 link-dark">Sobre nós</a></li>
     <li><a [routerLink]="['/contact']" class="nav-link px-2 link-dark">Contato</a></li>
   </ul>

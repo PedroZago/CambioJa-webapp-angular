@@ -1,0 +1,44 @@
+<h2 class="mb-5 text-center">Moedas</h2>
+
+<div class="container d-flex justify-content-center">
+  <div class="card" style="width: 70rem;">
+    <div class="card-body p-4">
+
+      <table class="table align-middle text-center table-hover">
+        <thead>
+          <tr>
+            <th>Nome</th>
+
+            <th>Sigla</th>
+
+            <th>Cotação (Em BRL)</th>
+
+            <th>-</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr *ngFor="let moeda of moedas">
+            <td style="width: 250px">{{moeda.nome}}</td>
+
+            <td style="width: 250px">{{moeda.codISO}}</td>
+
+            <td style="width: 250px">{{moeda.cotacao | currency:'BRL'}}</td>
+
+            <td style="width: 250px">
+              <a [routerLink]="['/moeda/editar', moeda.moedaID]" class="btn btn-secondary m-1">Editar</a>
+              <a class="btn btn-danger m-1" (click)="removerMoeda($event, moeda)">Remover</a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="align-middle text-center">
+        <a [routerLink]="['/moeda/nova']" class="btn btn-primary m-1">
+          Adicionar Moeda
+        </a>
+      </div>
+
+    </div>
+  </div>
+</div>

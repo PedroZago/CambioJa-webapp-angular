@@ -9,6 +9,8 @@ import { AuthCookieService } from '../../../../services';
 })
 export class NavbarComponent implements OnInit {
 
+  possuiErro!: boolean;
+  ehAdmin!: boolean;
 
   constructor(
     private authCookieService: AuthCookieService

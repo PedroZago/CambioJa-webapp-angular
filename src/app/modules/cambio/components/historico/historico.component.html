@@ -1,20 +1,48 @@
-<form [formGroup]="historicoForm" (ngSubmit)="pegarHistorico()">
-  <div class="form-floating mb-3">
-    <select class="form-select" id="moeda" formControlName="moeda" aria-label="Floating label select example">
-      <option [value]="'Euro'">Euro</option>
-      <option [value]="'Dolar'">Dolar</option>
-      <option [value]="'Libra'">Libra</option>
-    </select>
+<h2 class="mb-5 text-center">Histórico</h2>
 
-    <label for="moeda">MOEDA</label>
+<div class="container-fluid d-flex justify-content-center">
+  <div class="card" style="width: 70rem;">
+    <div class="card-body p-4">
 
-    <div *ngIf="moeda.invalid && (moeda.dirty || moeda.touched)" class="form-text text-danger">
-      <div *ngIf="moeda.errors?.['required']">
-        Campo obrigatório.
-      </div>
+      <form [formGroup]="historicoForm" (ngSubmit)="pegarHistorico()">
+        <div class="form-floating mb-3">
+          <select class="form-select" id="moeda" formControlName="moeda" aria-label="Floating label select example"
+            (change)="moedaSelecionada($event)">
+            <option *ngFor="let moeda of moedas" [value]="moeda.moedaID">{{ moeda.nome }}</option>
+          </select>
+
+          <label for="moeda">Moeda</label>
+
+          <div *ngIf="moeda.invalid && (moeda.dirty || moeda.touched)" class="form-text text-danger">
+            <div *ngIf="moeda.errors?.['required']">
+              Campo obrigatório.
+            </div>
+          </div>
+        </div>
+      </form>
+
+      <table class="table align-middle text-center table-hover">
+        <thead>
+          <tr>
+            <th>Data da operação</th>
+
+            <th>Valor de origem</th>
+
+            <th>Valor final</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr *ngFor="let cambio of cambios">
+            <td>{{cambio.dataCambio | date:'short'}}</td>
+
+            <td>{{cambio.valorOrigem | currency:'BRL':'symbol-narrow':'1.2-2'}}</td>
+
+            <td>{{cambio.valorFinal | currency:codISO:'symbol-narrow':'1.2-2'}}</td>
+          </tr>
+        </tbody>
+      </table>
+
     </div>
   </div>
-
-  <button class="w-100 btn btn-lg btn-primary mb-3" type="submit" [disabled]="historicoForm.invalid">Ver
-    histórico</button>
-</form>
+</div>

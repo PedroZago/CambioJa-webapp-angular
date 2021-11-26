@@ -1,0 +1,61 @@
+<h2 class="mb-5 text-center">Atualizar moeda</h2>
+
+<div class="container d-flex justify-content-center">
+  <div class="card" style="width: 70rem;">
+    <div class="card-body p-4">
+
+      <form [formGroup]="moedaForm" (ngSubmit)="editarMoeda()">
+        <div class="row g-2">
+          <div class="col-4">
+            <div class="form-floating mb-3">
+              <input type="text" class="form-control" id="nome" formControlName="nome"
+                placeholder="Informe o nome da moeda" required>
+
+              <label for="nome">Nome</label>
+
+              <div *ngIf="nome.invalid && (nome.dirty || nome.touched)" class="form-text text-danger">
+                <div *ngIf="nome.errors?.['required']">
+                  Campo obrigatório.
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-4">
+            <div class="form-floating mb-3">
+              <input type="text" class="form-control" id="codISO" formControlName="codISO"
+                placeholder="Informe a sigla da moeda" required>
+
+              <label for="codISO">Sigla</label>
+
+              <div *ngIf="codISO.invalid && (codISO.dirty || codISO.touched)" class="form-text text-danger">
+                <div *ngIf="codISO.errors?.['required']">
+                  Campo obrigatório.
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-4">
+            <div class="form-floating mb-3">
+              <input type="number" class="form-control" id="cotacao" formControlName="cotacao"
+                placeholder="Informe a cotação da moeda" required>
+
+              <label for="cotacao">Cotação</label>
+
+              <div *ngIf="cotacao.invalid && (cotacao.dirty || cotacao.touched)" class="form-text text-danger">
+                <div *ngIf="cotacao.errors?.['required']">
+                  Campo obrigatório.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <button class="w-100 btn btn-lg btn-primary mb-3" type="submit"
+          [disabled]="moedaForm.invalid">Atualizar</button>
+      </form>
+
+    </div>
+  </div>
+</div>

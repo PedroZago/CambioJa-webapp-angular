@@ -4,7 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 import {
   CadastroRoutes, CambioRoutes, SairRoutes, LoginRoutes,
   Page404Routes, PerfilRoutes, ContatoRoutes, SobreNosRoutes,
-  HomeRoutes, AlterarSenhaRoutes
+  HomeRoutes, AlterarSenhaRoutes, MoedaRoutes
 } from './modules';
 
 const routes: Routes = [
@@ -19,6 +19,7 @@ const routes: Routes = [
   ...ContatoRoutes,
   ...SobreNosRoutes,
   ...HomeRoutes,
+  ...MoedaRoutes,
   ...CambioRoutes,
   ...PerfilRoutes,
   ...SairRoutes,

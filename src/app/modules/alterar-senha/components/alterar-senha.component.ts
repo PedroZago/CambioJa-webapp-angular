@@ -58,9 +58,6 @@ export class AlterarSenhaComponent implements OnInit {
     if (this.senhaNova.value === this.confirmarSenhaNova.value) {
       this.alterarSenhaService.alterarSenha(this.senha, this.authCookieService.extrarID())
         .subscribe(
-          response => {
-            console.log(response)
-          },
           error => {
             this.possuiErro = true
           }

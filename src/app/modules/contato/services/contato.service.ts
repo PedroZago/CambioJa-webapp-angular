@@ -10,6 +10,5 @@ export class ContatoService {
   constructor() { }
 
   enviarMensagem(mensagem: Contato) {
-    console.log(mensagem);
   }
 }

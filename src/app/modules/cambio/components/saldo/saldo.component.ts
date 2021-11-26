@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
 
-import { Moeda, Saldo } from '../..//models';
+import { Saldo } from '../../models';
 import { AuthCookieService } from '../../../../services';
-import { MoedaService } from '../../services';
+import { MoedaService } from '../../../moeda';
+import { CambioService } from '../../services';
 
 @Component({
   selector: 'app-saldo',
@@ -16,6 +16,9 @@ export class SaldoComponent implements OnInit {
   possuiErro!: boolean;
   saldo!: Saldo;
   moedas: any = [];
+  codISO!: string;
+  saldoTotal: number = 0;
+  nome: any;
 
   saldoForm = new FormGroup({
     moeda: new FormControl(null, [
@@ -24,8 +27,8 @@ export class SaldoComponent implements OnInit {
   })
 
   constructor(
-    private router: Router,
     private moedaService: MoedaService,
+    private cambioService: CambioService,
     private authCookieService: AuthCookieService,
   ) { }
 
@@ -35,6 +38,16 @@ export class SaldoComponent implements OnInit {
 
   get moeda(): any {
     return this.saldoForm.get('moeda');
+  }
+
+  moedaSelecionada(event: any) {
+    for (var i in this.moedas) {
+      if (event.target.value == this.moedas[i].moedaID) {
+        this.codISO = this.moedas[i].codISO;
+        this.pegarSaldo();
+        this.saldoTotal = 0;
+      }
+    }
   }
 
   pegarTodasMoedas() {
@@ -52,10 +65,14 @@ export class SaldoComponent implements OnInit {
   pegarSaldo(): void {
     this.saldo = { moedaID: parseInt(this.moeda.value, 10), usuarioID: this.authCookieService.extrarID() }
 
-    this.moedaService.pegarSaldo(this.saldo)
+    this.cambioService.pegarCambios(this.saldo)
       .subscribe(
-        response => {
-          console.log(response)
+        (response: any) => {
+          if (response != null) {
+            for (var i in response) {
+              this.saldoTotal += response[i].valorFinal;
+            }
+          }
         },
         error => {
           this.possuiErro = true

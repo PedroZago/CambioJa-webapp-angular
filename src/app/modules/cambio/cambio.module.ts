@@ -4,27 +4,28 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 
-import { MoedaService, CambioService } from './services';
-import { SaldoComponent, ConversaoComponent, HistoricoComponent } from './components';
+import { CambioService } from './services';
+import { SaldoComponent, ConversaoComponent, HistoricoComponent, CambioComponent } from './components';
 import { LayoutModule } from '../layout';
-import { CambioComponent } from './components/cambio/cambio.component';
+import { ValorMaximoDirective } from '../../directives';
 
 @NgModule({
   declarations: [
     SaldoComponent,
     ConversaoComponent,
     HistoricoComponent,
-    CambioComponent
+    CambioComponent,
+    ValorMaximoDirective
   ],
   imports: [
     CommonModule,
     HttpClientModule,
     FormsModule,
     LayoutModule,
-    RouterModule, ReactiveFormsModule
+    RouterModule,
+    ReactiveFormsModule
   ],
   providers: [
-    MoedaService,
     CambioService
   ]
 })

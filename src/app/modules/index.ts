@@ -9,3 +9,4 @@ export * from './contato';
 export * from './home';
 export * from './sair';
 export * from './alterar-senha';
+export * from './moeda';
